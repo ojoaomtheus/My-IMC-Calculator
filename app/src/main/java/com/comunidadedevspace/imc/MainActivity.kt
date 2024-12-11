@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
                 "preencha todos os campos",
                 Snackbar.LENGTH_LONG
             )
+
                 .show()
 
 
