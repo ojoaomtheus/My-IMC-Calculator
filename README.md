@@ -18,7 +18,7 @@ Screenshots
   - ImageView
   - TextView
   - EditText
-  - Button 
+  - Button
 
 
 ## License
