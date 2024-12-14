@@ -1,5 +1,6 @@
 package com.comunidadedevspace.imc
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -10,9 +11,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        //Preciso conectar minha mainActivity com o xml
-
 
         val edtPeso = findViewById<TextInputEditText>(R.id.idt_peso)
         val edtAltura = findViewById<TextInputEditText>(R.id.idt_altura)
@@ -26,28 +24,27 @@ class MainActivity : AppCompatActivity() {
 
             if (pesoStr == "" || alturaStr == "") {
 
-
-                // mostrar mensagem para o usuario
-
-            Snackbar.make(
-                edtPeso,
-                "preencha todos os campos",
-                Snackbar.LENGTH_LONG
-            )
-
-                .show()
+        Snackbar.make(
+        edtPeso,
+        "preencha todos os campos",
+        Snackbar.LENGTH_LONG
+        )
+        .show()
 
 
-            } else {
+        } else {
 
-                val peso = pesoStr.toFloat()
-                val altura = alturaStr.toFloat()
+        val peso = pesoStr.toFloat()
+        val altura = alturaStr.toFloat()
 
-                val alturaQ2 = altura * altura
-                val resultado = peso / alturaQ2
+        val alturaQ2 = altura * altura
+        val resultado = peso / alturaQ2
 
-                println("joao" + resultado)
-            }
+        val intent = Intent(this, ResultActivity::class.java)
+        intent.putExtra(KEY_RESULT_IMC, resultado)
+        startActivity(intent)
+
+        }
 
         }
     }
